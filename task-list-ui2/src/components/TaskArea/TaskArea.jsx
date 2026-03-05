@@ -1,12 +1,23 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TaskContext } from "../../TaskContext";
 import './taskArea.css';
+import TaskList from "../TaskList/TaskList";
 
 
 const TaskArea =() => {
 
     const { tasks } = useContext(TaskContext);
     const [currentTab, setCurrentTab] = useState("Incomplete");
+    const [selectedTaskId, setSelectedTaskId] = useState(null);
+
+    const completeTasks = tasks.filter(task => task.isCompleted);
+    const incompleteTasks = tasks.filter(task => !task.isCompleted);
+
+    const selectedTask = tasks.find(task => task.id === selectedTaskId);
+
+    useEffect(() => {
+        console.log("Selected task ID changed:", selectedTaskId);
+    }, [selectedTaskId]);
 
     function getTabClass(defaultClass, tabName) {
         return tabName === currentTab ? `${defaultClass} active` : `${defaultClass}`;
@@ -14,6 +25,14 @@ const TaskArea =() => {
 
     function changeCurrentTab(tabName) {
         setCurrentTab(tabName);
+    }
+
+    function getTasksToList() {
+        if (currentTab === "Complete") {
+            return completeTasks;  
+        } else {
+            return incompleteTasks;
+        }   
     }
 
     // show tabs with list of complete and incomplete tasks
@@ -32,6 +51,7 @@ const TaskArea =() => {
                     <p className={getTabClass("nav-link", "Complete")}>Complete</p>
                 </li>
             </ul>
+            <TaskList tasksToList={getTasksToList()} selectedTaskId={selectedTaskId} setSelectedTaskId={setSelectedTaskId} />
         </div>
       </div>
       <div id="button-area">
