@@ -18,7 +18,6 @@ const ModifyTask = ({taskToDisplay}) => {
     // TODO format date so it displays correctly in the input field
 
     function saveChanges() {
-        console.log()
         // TODO: error handing in case api call fails
         const isCompleted = isCompletedRef.current.checked;
         const updatedTask = {
@@ -27,8 +26,6 @@ const ModifyTask = ({taskToDisplay}) => {
             dueDate: dueDateRef.current.value,
             isCompleted: isCompleted
         };
-
-        console.log("Updated task:", updatedTask);
 
         const updatedTaskList = tasks.map(task => {
             if (task.id === updatedTask.id) {

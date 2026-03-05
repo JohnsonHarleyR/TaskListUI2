@@ -7,7 +7,6 @@ export async function getAllTasks(setTasks) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const tasks = await response.json();
-    console.log("Fetched tasks:", tasks);
     setTasks(tasks);
     return tasks;
   } catch (error) {
@@ -29,7 +28,6 @@ export async function modifyTask(task) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const updatedTask = await response.json();
-    console.log("Updated task:", updatedTask);
     return updatedTask;
   } catch (error) {
     console.error("Error modifying task:", error);
@@ -50,7 +48,6 @@ export async function addTask(task) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }         
     const createdTask = await response.json();
-    console.log("Created task:", createdTask);
     return createdTask;
   } catch (error) {
     console.error("Error creating task:", error);
@@ -66,7 +63,6 @@ export async function deleteTask(taskId) {
     if (!response.ok) { 
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    console.log(`Deleted task with id: ${taskId}`);
   } catch (error) {
     console.error("Error deleting task:", error);
     throw error;

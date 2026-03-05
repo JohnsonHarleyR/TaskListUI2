@@ -14,11 +14,7 @@ const AddTask = ({}) => {
 
     const {setDisplayMode, tasks, setTasks} = useContext(TaskContext);
 
-    console.log("Creating new task");
-
-
     function createTask() {
-        console.log()
         // TODO: error handing in case api call fails - reverse to previous state if api call fails
         const isCompleted = isCompletedRef.current.checked;
         const newTask = {
@@ -28,8 +24,6 @@ const AddTask = ({}) => {
             dueDate: dueDateRef.current.value,
             isCompleted: isCompleted
         };
-
-        console.log("New task:", newTask);
 
         // send api request to update the task on the server
         addTask(newTask).then((createdTaskFromServer) => {

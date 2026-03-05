@@ -12,7 +12,7 @@ import DeleteTask from "../DisplayModifyCreate/DeleteTask";
 
 const TaskArea =() => {
 
-    const { tasks, selectedTaskId, setSelectedTaskId, 
+    const { tasks, selectedTaskId, 
         displayMode, setDisplayMode } = useContext(TaskContext);
 
     const [currentTab, setCurrentTab] = useState("Incomplete");
@@ -21,10 +21,6 @@ const TaskArea =() => {
     const incompleteTasks = tasks.filter(task => !task.isCompleted);
 
     const selectedTask = tasks.find(task => task.id === selectedTaskId);
-
-    useEffect(() => {
-        console.log("Selected task ID changed:", selectedTaskId);
-    }, [selectedTaskId]);
 
     function getTabClass(defaultClass, tabName) {
         return tabName === currentTab ? `${defaultClass} active` : `${defaultClass}`;
@@ -57,10 +53,6 @@ const TaskArea =() => {
         }
     }
 
-    // show tabs with list of complete and incomplete tasks
-    // when an item is clicked, show the details of the task and allow editing of the task details
-    // allow the user to mark a task as complete or incomplete
-    // allow the user to delete a task or add a new one
     return (
     <div id="full-task-area">
       <div id="main-task-area">

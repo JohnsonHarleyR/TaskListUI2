@@ -5,13 +5,10 @@ import { TaskContext } from "../../TaskContext";
 
 const TaskList = ({tasksToList}) => {
 
-    console.log("Rendering TaskList with tasks:", tasksToList);
-
     const {selectedTaskId, setSelectedTaskId, setDisplayMode} = useContext(TaskContext);
     const listDisplaySize = 10;
 
     function selectTask(taskId) {
-        console.log("Task selected with ID:", taskId);
         setSelectedTaskId(taskId);
         setDisplayMode(DisplayMode.DISPLAY);
     }
