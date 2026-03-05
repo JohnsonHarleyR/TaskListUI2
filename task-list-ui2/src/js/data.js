@@ -1,4 +1,4 @@
-const apiAddress = "https://localhost:7228/api/tasks";
+import { apiAddress } from "./constants";
 
 export async function getAllTasks(setTasks) {
   try {

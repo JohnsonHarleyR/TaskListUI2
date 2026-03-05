@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+:root {
+  --card-width: 350px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

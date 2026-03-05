@@ -1,11 +1,13 @@
 
-.task-list {
+.main-area {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     padding: 20px;
+    border: 2px solid green;
     width: var(--card-width);
 }
 
-.form-select {
-    width: 100%;
+.center {
+    justify-content: center;
 }

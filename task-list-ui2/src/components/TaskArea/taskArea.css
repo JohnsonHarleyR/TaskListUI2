@@ -25,6 +25,5 @@
 }
 
 #list-area {
-    min-width: 300px;
-    border: 2px solid cyan;
+    min-width: var(--card-width);
 }

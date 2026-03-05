@@ -2,13 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import { TaskContext } from "../../TaskContext";
 import './taskArea.css';
 import TaskList from "../TaskList/TaskList";
+import { DisplayMode } from "../../js/constants";
+import DisplayTask from "../DisplayModifyCreate/DisplayTask";
 
 
 const TaskArea =() => {
 
-    const { tasks } = useContext(TaskContext);
+    const { tasks, selectedTaskId, setSelectedTaskId, 
+        displayMode, setDisplayMode } = useContext(TaskContext);
+
     const [currentTab, setCurrentTab] = useState("Incomplete");
-    const [selectedTaskId, setSelectedTaskId] = useState(null);
 
     const completeTasks = tasks.filter(task => task.isCompleted);
     const incompleteTasks = tasks.filter(task => !task.isCompleted);
@@ -35,6 +38,21 @@ const TaskArea =() => {
         }   
     }
 
+    function getDisplayArea() {
+        switch(displayMode) {
+            case DisplayMode.NONE:
+                return <></>;
+            case DisplayMode.DISPLAY:
+                return <DisplayTask taskToDisplay={selectedTask} />;
+            case DisplayMode.MODIFY:
+                return <></>;
+            case DisplayMode.CREATE:
+                return <></>;
+            default:
+                return <></>;
+        }
+    }
+
     // show tabs with list of complete and incomplete tasks
     // when an item is clicked, show the details of the task and allow editing of the task details
     // allow the user to mark a task as complete or incomplete
@@ -51,7 +69,10 @@ const TaskArea =() => {
                     <p className={getTabClass("nav-link", "Complete")}>Complete</p>
                 </li>
             </ul>
-            <TaskList tasksToList={getTasksToList()} selectedTaskId={selectedTaskId} setSelectedTaskId={setSelectedTaskId} />
+            <TaskList tasksToList={getTasksToList()} />
+        </div>
+        <div id="display-area">
+            {getDisplayArea()}
         </div>
       </div>
       <div id="button-area">
