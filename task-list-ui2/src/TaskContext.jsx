@@ -17,7 +17,7 @@ const TaskProvider = ({children}) => {
     const areTasksLoaded = tasks !== null;
 
     return <TaskContext.Provider value={{
-            tasks, areTasksLoaded,
+            tasks, setTasks, areTasksLoaded,
             selectedTaskId, setSelectedTaskId,
             displayMode, setDisplayMode
         }}>

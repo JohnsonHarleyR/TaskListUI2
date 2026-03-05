@@ -5,6 +5,7 @@ import TaskList from "../TaskList/TaskList";
 import { DisplayMode } from "../../js/constants";
 import DisplayTask from "../DisplayModifyCreate/DisplayTask";
 import ModifyTask from "../DisplayModifyCreate/ModifyTask";
+import AddTask from "../DisplayModifyCreate/AddTask";
 import Button from "../subcomponents/Button/Button";
 
 
@@ -49,7 +50,7 @@ const TaskArea =() => {
             case DisplayMode.MODIFY:
                 return <ModifyTask taskToDisplay={selectedTask} />;
             case DisplayMode.CREATE:
-                return <></>;
+                return <AddTask />;
             default:
                 return <></>;
         }
@@ -78,7 +79,7 @@ const TaskArea =() => {
         </div>
       </div>
       <div id="button-area">
-        <Button text="Add New Task" onClick={() => { console.log('test')}} />
+        <Button text="Add New Task" onClick={() => { setDisplayMode(DisplayMode.CREATE )}} />
         <Button text="Delete Selected" onClick={() => {}}  disabled={selectedTaskId !== null} />
       </div>
     </div>

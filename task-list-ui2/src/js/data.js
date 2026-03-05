@@ -36,3 +36,24 @@ export async function modifyTask(task) {
     throw error;
   }
 }
+
+export async function addTask(task) {
+  try {
+    const response = await fetch(`${apiAddress}`, {  
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(task)
+    }); 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }         
+    const createdTask = await response.json();
+    console.log("Created task:", createdTask);
+    return createdTask;
+  } catch (error) {
+    console.error("Error creating task:", error);
+    throw error;
+  }   
+}

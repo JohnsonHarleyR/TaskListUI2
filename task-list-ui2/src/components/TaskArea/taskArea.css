@@ -9,10 +9,14 @@
 #main-task-area, #button-area {
     display: flex;
     gap: 10px;
-    border: 2px solid pink;
 
     min-width: 300px;
     min-height: 100px;
+}
+
+#main-task-area {
+    background-color: rgb(237, 251, 254);
+    border: 2px solid rgb(3, 41, 52);
 }
 
 #tab-area {

@@ -4,7 +4,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    border: 2px solid green;
+    background-color: rgb(213, 245, 255);
     width: var(--card-width);
 }
 
