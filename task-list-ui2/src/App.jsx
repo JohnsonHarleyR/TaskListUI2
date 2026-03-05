@@ -1,7 +1,5 @@
 import { useContext, useState } from 'react'
 import { TaskContext } from './TaskContext'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import TaskArea from './components/TaskArea/TaskArea'
 
@@ -21,9 +19,6 @@ function App() {
         :
         <div>
           <TaskArea />
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
         </div>
     }
       
