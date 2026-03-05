@@ -1,0 +1,30 @@
+
+#full-task-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+#main-task-area, #button-area {
+    display: flex;
+    gap: 10px;
+    border: 2px solid pink;
+
+    min-width: 300px;
+    min-height: 100px;
+}
+
+#tab-area {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+}
+
+#list-area {
+    min-width: 300px;
+    border: 2px solid cyan;
+}
