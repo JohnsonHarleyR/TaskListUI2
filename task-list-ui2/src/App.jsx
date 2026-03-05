@@ -11,7 +11,8 @@ function App() {
 
 
   return (
-    <>
+    <div id="app">
+      <h1>Task List</h1>
     {!areTasksLoaded ? 
         <div>
           <p>Loading...</p>
@@ -24,7 +25,7 @@ function App() {
         </div>
     }
       
-    </>
+    </div>
   )
 }
 
