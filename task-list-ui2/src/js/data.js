@@ -57,3 +57,18 @@ export async function addTask(task) {
     throw error;
   }   
 }
+
+export async function deleteTask(taskId) {
+  try {
+    const response = await fetch(`${apiAddress}/${taskId}`, {
+      method: "DELETE"
+    });
+    if (!response.ok) { 
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    console.log(`Deleted task with id: ${taskId}`);
+  } catch (error) {
+    console.error("Error deleting task:", error);
+    throw error;
+  }
+}

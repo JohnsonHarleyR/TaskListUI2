@@ -52,7 +52,7 @@ const AddTask = ({}) => {
                     </label>
                 </p>
                 <p className="center">
-                    <Button text="Create Task" onClick={createTask} />
+                    <Button text="Create Task" onClick={createTask} disabled={false}/>
                 </p>
             </form>
             

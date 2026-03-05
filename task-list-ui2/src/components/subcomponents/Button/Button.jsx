@@ -1,18 +1,20 @@
 import "./button.css";
 
-const Button = ({text, onClick, disabled = "false"}) => {
+const Button = ({text, onClick, disabled = false}) => {
 
-    function getButtonByDisabled() {
-        if (disabled === "true") {
-            return <button className="btn btn-primary" onClick={onClick} disabled>{text}</button>;
-        } else {
-            return <button className="btn btn-primary" onClick={onClick}>{text}</button>;
-        }
+    console.log(`Button ${text} disabled:`, disabled);
+    if (disabled === "true") {
+        console.log(`Button ${text} is disabled`);
     }
+
+    const buttonClass = disabled === true ? "btn btn-primary disabled" : "btn btn-primary";
+    const clickFunction = disabled === true ? () => {} : onClick;
+
+
 
     return (
         <>
-            {getButtonByDisabled()}
+            <button className={buttonClass} onClick={clickFunction}>{text}</button>
         </>
     );
 }
