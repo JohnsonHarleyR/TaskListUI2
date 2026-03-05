@@ -6,7 +6,8 @@ export async function getAllTasks(setTasks) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const tasks= await response.json();
+    const tasks = await response.json();
+    console.log("Fetched tasks:", tasks);
     setTasks(tasks);
     return tasks;
   } catch (error) {

@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-    {areTasksLoaded ? 
+    {!areTasksLoaded ? 
         <div>
           <p>Loading...</p>
         </div>
