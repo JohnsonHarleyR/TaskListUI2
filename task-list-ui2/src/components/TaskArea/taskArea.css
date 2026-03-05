@@ -27,3 +27,7 @@
 #list-area {
     min-width: var(--card-width);
 }
+
+#button-area {
+    justify-content: center;
+}

@@ -4,6 +4,8 @@ import './taskArea.css';
 import TaskList from "../TaskList/TaskList";
 import { DisplayMode } from "../../js/constants";
 import DisplayTask from "../DisplayModifyCreate/DisplayTask";
+import ModifyTask from "../DisplayModifyCreate/ModifyTask";
+import Button from "../subcomponents/Button/Button";
 
 
 const TaskArea =() => {
@@ -45,7 +47,7 @@ const TaskArea =() => {
             case DisplayMode.DISPLAY:
                 return <DisplayTask taskToDisplay={selectedTask} />;
             case DisplayMode.MODIFY:
-                return <></>;
+                return <ModifyTask taskToDisplay={selectedTask} />;
             case DisplayMode.CREATE:
                 return <></>;
             default:
@@ -76,7 +78,8 @@ const TaskArea =() => {
         </div>
       </div>
       <div id="button-area">
-        test
+        <Button text="Add New Task" onClick={() => { console.log('test')}} />
+        <Button text="Delete Selected" onClick={() => {}}  disabled={selectedTaskId !== null} />
       </div>
     </div>
     );

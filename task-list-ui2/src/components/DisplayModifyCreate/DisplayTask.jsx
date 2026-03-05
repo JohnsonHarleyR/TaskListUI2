@@ -8,7 +8,7 @@ import { DisplayMode } from "../../js/constants";
 const DisplayTask = ({taskToDisplay}) => {
 
     const {setDisplayMode} = useContext(TaskContext);
-    
+
     return (
         <div className="main-area">
             <p><b>Created:</b> {formatDate(taskToDisplay.creationDate)}</p>
